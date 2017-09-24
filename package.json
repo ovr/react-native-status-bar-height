@@ -1,0 +1,29 @@
+{
+  "name": "react-native-status-bar-height",
+  "version": "1.0.0",
+  "description": "Get status bar height for React Native App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ovr/react-native-status-bar-height.git"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": "Dmitry Patsura <talk@dmtry.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ovr/react-native-status-bar-height/issues"
+  },
+  "homepage": "https://github.com/ovr/react-native-status-bar-height#readme",
+  "devDependencies": {
+    "flow-bin": "^0.55.0",
+    "react-native": "^0.48.4"
+  },
+  "dependencies": {
+    "react-native-iphone-x-helper": "^1.0.1"
+  }
+}
