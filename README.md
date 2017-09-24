@@ -4,22 +4,26 @@
 
 P.S :iphone:X supported :heart:
 
+## Install
+
 ```bash
-npm install --save react-native-status-bar-height
+$ npm install --save react-native-status-bar-height
+# OR
+$ yarn add react-native-status-bar-height
 ```
 
-How to use it:
+## Usage
 
-```
+```js
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
-// iPhoneX: 44pt
-// iOS device: 20pt
-// Android: 0
 console.log(getStatusBarHeight());
+// 44 - on iPhoneX
+// 20 - on iOS device
+// 0 - on Android
 ```
 
-### LICENSE
+## License
 
 This project is open-sourced software licensed under the MIT License.
 
