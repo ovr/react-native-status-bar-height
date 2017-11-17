@@ -1,3 +1,4 @@
+// @flow
 import { Dimensions, Platform, StatusBar } from 'react-native';
 
 const d = Dimensions.get('window');
