@@ -1,11 +1,12 @@
 // @flow
+import { Dimensions, Platform, StatusBar } from 'react-native';
 
-import { Platform, StatusBar } from 'react-native';
-import { ifIphoneX } from 'react-native-iphone-x-helper';
+const d = Dimensions.get('window');
+const isIPhoneX = Platform.OS === 'ios' && !Platform.isPad && !Platform.isTVOS && (d.height === 812 || d.width === 812);
 
 export function getStatusBarHeight(skipAndroid: boolean = false) {
     if (Platform.OS === 'ios') {
-        return ifIphoneX(44, 20);
+        return isIPhoneX ? 44 : 20;
     }
 
     if (skipAndroid) {
