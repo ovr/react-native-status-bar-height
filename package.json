@@ -22,8 +22,5 @@
   "devDependencies": {
     "flow-bin": "^0.55.0",
     "react-native": "^0.48.4"
-  },
-  "dependencies": {
-    "react-native-iphone-x-helper": "^1.0.1"
   }
 }
