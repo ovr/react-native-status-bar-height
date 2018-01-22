@@ -12,15 +12,18 @@ $ npm install --save react-native-status-bar-height
 $ yarn add react-native-status-bar-height
 ```
 
-## Usage
+## Usage getStatusBarHeight(skipAndroid: boolean = false)
 
 ```js
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
-console.log(getStatusBarHeight());
 // 44 - on iPhoneX
 // 20 - on iOS device
-// 0 - on Android
+// X - on Android platfrom (runtime value)
+console.log(getStatusBarHeight());
+
+// will be 0 on Android, because You pass true to skipAndroid
+console.log(getStatusBarHeight(true));
 ```
 
 ## License
