@@ -15,14 +15,22 @@ if (Platform.OS === 'ios' && !Platform.isPad && !Platform.isTVOS) {
     isIPhoneX = W_WIDTH === X_WIDTH && W_HEIGHT === X_HEIGHT || W_WIDTH === XSMAX_WIDTH && W_HEIGHT === XSMAX_HEIGHT;
 }
 
-export function getStatusBarHeight(skipAndroid: boolean = false) {
-    if (Platform.OS === 'ios') {
-        return isIPhoneX ? 44 : 20;
-    }
+function getIPhoneStatusBarHeight() {
+    return isIPhoneX ? 44 : 20;
+}
 
-    if (skipAndroid) {
+function getAndroidStatusBarHeight(skip: boolean) {
+    if (skip) {
         return 0;
     }
 
     return StatusBar.currentHeight;
+}
+
+export function getStatusBarHeight(skipAndroid: boolean = false) {
+    return Platform.select({
+        ios: getIPhoneStatusBarHeight(),
+        android: getAndroidStatusBarHeight(skipAndroid),
+        default: 0
+    })
 }
