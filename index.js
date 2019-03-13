@@ -22,8 +22,8 @@ isIPhoneXR = PixelRatio.get() === 3;
 
 let iosBottomBarHeight = 0;
 
-if (isIPhoneX) iosBottomBarHeight = 102;
-else if (isIPhoneXR) iosBottomBarHeight = 68;
+if (isIPhoneX) iosBottomBarHeight = 102* 0,75 ;
+else if (isIPhoneXR) iosBottomBarHeight = 68* 0,75;
 
 export function getStatusBarHeight(skipAndroid = false) {
   return Platform.select({
