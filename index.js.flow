@@ -1,4 +1,4 @@
 
 declare module 'react-native-status-bar-height' {
-    declare function getStatusBarHeight(skipAndroid: boolean = false): number
+    declare function getStatusBarHeight(skipAndroid: boolean): number
 }
