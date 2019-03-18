@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/ovr/react-native-status-bar-height#readme",
   "devDependencies": {
-    "flow-bin": "^0.55.0",
+    "flow-bin": "^0.95.1",
     "react-native": "^0.48.4",
     "typescript": "^3.3.3333"
   }
