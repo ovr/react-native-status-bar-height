@@ -14,6 +14,10 @@ if (Platform.OS === 'ios' && !Platform.isPad && !Platform.isTVOS) {
     isIPhoneX = W_WIDTH === X_WIDTH && W_HEIGHT === X_HEIGHT || W_WIDTH === XSMAX_WIDTH && W_HEIGHT === XSMAX_HEIGHT;
 }
 
+const getExpoRoot = () => global.Expo || global.__expo || global.__exponent;
+
+export const isExpo = () => getExpoRoot() !== undefined;
+
 export function getStatusBarHeight(skipAndroid) {
     return Platform.select({
         ios: isIPhoneX ? 44 : 20,
