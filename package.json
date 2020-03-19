@@ -1,12 +1,17 @@
 {
   "name": "react-native-status-bar-height",
-  "version": "2.4.0",
+  "version": "3.0.0-alpha.1",
   "description": "Get status bar height for React Native App",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "prepublishOnly": "rm -rf dist/ && npm run tsc"
   },
+  "files": [
+    "dist/**"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ovr/react-native-status-bar-height.git"
@@ -22,7 +27,12 @@
   "homepage": "https://github.com/ovr/react-native-status-bar-height#readme",
   "devDependencies": {
     "flow-bin": "^0.104",
+    "react": "^16.13.0",
     "react-native": "^0.60.4",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.23",
+    "@types/react-native": "^0.61.23"
   }
 }

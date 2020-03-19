@@ -12,9 +12,31 @@ $ npm install --save react-native-status-bar-height
 $ yarn add react-native-status-bar-height
 ```
 
-## Usage getStatusBarHeight(skipAndroid: boolean = false)
+## Usage of withStatusBarHeight HoC
 
-```js
+If you application support both orientations (portrait and landscape), it's heightly recommend to use
+HoC to detect orientation;
+
+```typescript
+import { Text } from 'react-native';
+import { withStatusBarHeight } from 'react-native-status-bar-height';
+
+type Props = WithStatusBarProps & {};
+
+export class MySuperScreenComponent extends React.PureComponent {
+    render() {
+        return (
+            <Text>{this.props.statusBarHeight}</Text>
+        )
+    }
+}
+
+export const MySuperScreen = withStatusBarHeight(MySuperScreenComponent, false);
+```
+
+## Direct usage getStatusBarHeight(skipAndroid: boolean = false)
+
+```typescript
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 // 44 - on iPhoneX
