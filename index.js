@@ -1,41 +1,37 @@
-import { Dimensions, Platform, StatusBar } from 'react-native';
+/*
+ * react-native-status-bar-height
+ */
 
-const X_WIDTH = 375;
-const X_HEIGHT = 812;
+import { Dimensions, Platform, StatusBar } from "react-native";
 
-const XSMAX_WIDTH = 414;
-const XSMAX_HEIGHT = 896;
+// Differ between iPhone and iPhone with notch
+let _isIPhoneWithNotch = false;
 
-const { height: W_HEIGHT, width: W_WIDTH } = Dimensions.get('window');
-
-let isIPhoneX_v = false;
-let isIPhoneXMax_v = false;
-let isIPhoneWithMonobrow_v = false;
-
-if (Platform.OS === 'ios' && !Platform.isPad && !Platform.isTVOS) {
-    if (W_WIDTH === X_WIDTH && W_HEIGHT === X_HEIGHT) {
-        isIPhoneWithMonobrow_v = true;
-        isIPhoneX_v = true;
-    }
-
-    if (W_WIDTH === XSMAX_WIDTH && W_HEIGHT === XSMAX_HEIGHT) {
-        isIPhoneWithMonobrow_v = true;
-        isIPhoneXMax_v = true;
-    }
+//Check if iPhone with notch
+if (Platform.OS === "ios" && !Platform.isPad && !Platform.isTVOS) {
+  if (Dimensions.get("window").height >= 812) {
+    _isIPhoneWithNotch = true;
+  }
 }
 
-export const isIPhoneX = () =>  isIPhoneX_v;
-export const isIPhoneXMax = () =>  isIPhoneXMax_v;
-export const isIPhoneWithMonobrow = () => isIPhoneWithMonobrow_v;
+/*
+ * public isIPhoneWithNotch()
+ */
+export const isIPhoneWithNotch = () => isIPhoneWithNotch_v;
 
+/*
+ * public isExpo()
+ */
 const getExpoRoot = () => global.Expo || global.__expo || global.__exponent;
-
 export const isExpo = () => getExpoRoot() !== undefined;
 
+/*
+ * public getStatusBarHeight()
+ */
 export function getStatusBarHeight(skipAndroid) {
-    return Platform.select({
-        ios: isIPhoneWithMonobrow_v ? 44 : 20,
-        android: skipAndroid ? 0 : StatusBar.currentHeight,
-        default: 0
-    })
+  return Platform.select({
+    ios: _isIPhoneWithNotch ? 44 : 20,
+    android: skipAndroid ? 0 : StatusBar.currentHeight,
+    default: 0,
+  });
 }
