@@ -3,6 +3,8 @@ declare module 'react-native-status-bar-height' {
     declare function getStatusBarHeight(skipAndroid?: boolean): number
     declare function isIPhoneX(): boolean
     declare function isIPhoneXMax(): boolean
+    declare function isIPhone12(): boolean
+    declare function isIPhone12Max(): boolean
     declare function isIPhoneWithMonobrow(): boolean
     declare function isExpo(): boolean
 }
