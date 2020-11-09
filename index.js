@@ -1,5 +1,10 @@
 import { Dimensions, Platform, StatusBar } from 'react-native';
 
+const STATUSBAR_DEFAULT_HEIGHT = 20;
+const STATUSBAR_X_HEIGHT = 44;
+const STATUSBAR_FLAT_SIDES_HEIGHT = 47;
+const STATUSBAR_FLAT_SIDES_MAX_HEIGHT = 47;
+
 const FLAT_SIDES_WIDTH = 390;
 const FLAT_SIDES_HEIGHT = 844;
 
@@ -14,6 +19,7 @@ const XSMAX_HEIGHT = 896;
 
 const { height: W_HEIGHT, width: W_WIDTH } = Dimensions.get('window');
 
+let statusBarHeight = STATUSBAR_DEFAULT_HEIGHT;
 let isIPhoneX_v = false;
 let isIPhoneXMax_v = false;
 let isIPhone12_v = false
@@ -24,21 +30,25 @@ if (Platform.OS === 'ios' && !Platform.isPad && !Platform.isTVOS) {
     if (W_WIDTH === X_WIDTH && W_HEIGHT === X_HEIGHT) {
         isIPhoneWithMonobrow_v = true;
         isIPhoneX_v = true;
+        statusBarHeight = STATUSBAR_X_HEIGHT;
     }
 
     if (W_WIDTH === XSMAX_WIDTH && W_HEIGHT === XSMAX_HEIGHT) {
         isIPhoneWithMonobrow_v = true;
         isIPhoneXMax_v = true;
+        statusBarHeight = STATUSBAR_X_HEIGHT;
     }
 
     if (W_WIDTH === FLAT_SIDES_WIDTH && W_HEIGHT === FLAT_SIDES_HEIGHT) {
         isIPhoneWithMonobrow_v = true;
         isIPhone12_v = true;
+        statusBarHeight = STATUSBAR_FLAT_SIDES_HEIGHT;
     }
 
     if (W_WIDTH === FLAT_SIDES_PRO_MAX_WIDTH && W_HEIGHT === FLAT_SIDES_PRO_MAX_HEIGHT) {
         isIPhoneWithMonobrow_v = true;
         isIPhone12Max_v = true;
+        statusBarHeight = STATUSBAR_FLAT_SIDES_MAX_HEIGHT;
     }
 }
 
@@ -54,7 +64,7 @@ export const isExpo = () => getExpoRoot() !== undefined;
 
 export function getStatusBarHeight(skipAndroid) {
     return Platform.select({
-        ios: isIPhoneWithMonobrow_v ? 44 : 20,
+        ios: statusBarHeight,
         android: skipAndroid ? 0 : StatusBar.currentHeight,
         default: 0
     })
