@@ -22,8 +22,21 @@
   },
   "homepage": "https://github.com/ovr/react-native-status-bar-height#readme",
   "devDependencies": {
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/jest": "^26.0.19",
     "flow-bin": "^0.104",
-    "react-native": "^0.60.4",
+    "jest": "^26.6.3",
+    "react-native": "^0.62.2",
     "typescript": "^3.3.3333"
+  },
+  "jest": {
+    "preset": "react-native",
+    "collectCoverage": true,
+    "coverageReporters": [
+      "html"
+    ]
+  },
+  "dependencies": {
+    "react": "^16.9.0"
   }
 }
