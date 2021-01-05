@@ -33,7 +33,8 @@
     "preset": "react-native",
     "collectCoverage": true,
     "coverageReporters": [
-      "html"
+      "html",
+      "json-summary"
     ]
   },
   "dependencies": {
