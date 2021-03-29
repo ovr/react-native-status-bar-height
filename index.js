@@ -1,6 +1,7 @@
 import { Dimensions, Platform, StatusBar } from "react-native";
 
 const STATUSBAR_DEFAULT_HEIGHT = 20;
+const STATUSBAR_DEFAULT_HEIGHT_WITH_MONOBROW = 30;
 const STATUSBAR_X_HEIGHT = 44;
 const STATUSBAR_IP12_HEIGHT = 47;
 const STATUSBAR_IP12MAX_HEIGHT = 47;
@@ -54,12 +55,24 @@ export const isIPhoneWithMonobrow = () => isIPhoneWithMonobrow_v;
 
 const getExpoRoot = () => global.Expo || global.__expo || global.__exponent;
 
+function checkIfSkippedSafeArea(skipSafeArea) {
+    if (skipSafeArea) {
+      if (isIPhoneWithMonobrow()) {
+        return STATUSBAR_DEFAULT_HEIGHT_WITH_MONOBROW;
+      } else {
+        return STATUSBAR_DEFAULT_HEIGHT;
+      } 
+    } else {
+      return statusBarHeight
+    }
+}
+
 export const isExpo = () => getExpoRoot() !== undefined;
 
-export function getStatusBarHeight(skipAndroid) {
+export function getStatusBarHeight(skip) {
   return Platform.select({
-    ios: statusBarHeight,
-    android: skipAndroid ? 0 : StatusBar.currentHeight,
+    ios: checkIfSkippedSafeArea(skip),
+    android: skip ? 0 : StatusBar.currentHeight,
     default: 0,
   });
 }
