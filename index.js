@@ -52,10 +52,6 @@ export const isIPhone12 = () => isIPhone12_v;
 export const isIPhone12Max = () => isIPhone12Max_v;
 export const isIPhoneWithMonobrow = () => isIPhoneWithMonobrow_v;
 
-const getExpoRoot = () => global.Expo || global.__expo || global.__exponent;
-
-export const isExpo = () => getExpoRoot() !== undefined;
-
 export function getStatusBarHeight(skipAndroid) {
   return Platform.select({
     ios: statusBarHeight,
