@@ -97,6 +97,20 @@ describe("getStatusBarHeight", () => {
       const expectedSize = 47;
       expect(getStatusBarHeight()).toBe(expectedSize);
     });
+    test("Should return 49 when device is iOS and have iPhone 14 Max width and height", () => {
+      mockCanvasSize(393, 852);
+
+      getStatusBarHeight = require("./").getStatusBarHeight;
+      const expectedSize = 49;
+      expect(getStatusBarHeight()).toBe(expectedSize);
+    });
+    test("Should return 49 when device is iOS and have iPhone 14 Pro Max width and height", () => {
+      mockCanvasSize(430, 932);
+
+      getStatusBarHeight = require("./").getStatusBarHeight;
+      const expectedSize = 49;
+      expect(getStatusBarHeight()).toBe(expectedSize);
+    });
   });
   describe("Android", () => {
     let getStatusBarHeight: (skipAndroid?: boolean) => number;

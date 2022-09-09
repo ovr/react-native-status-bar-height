@@ -6,5 +6,6 @@ declare module 'react-native-status-bar-height' {
     declare function isIPhone12(): boolean
     declare function isIPhone12Max(): boolean
     declare function isIPhoneWithMonobrow(): boolean
+    declare function isIPhoneWithDynamicIsland(): boolean
     declare function isExpo(): boolean
 }
