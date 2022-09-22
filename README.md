@@ -2,7 +2,7 @@
 
 > Small library that helps you to get status bar height
 
-P.S :iphone:X supported :heart:
+P.S. iPhone X supported :heart:
 
 ## Install
 
@@ -12,18 +12,18 @@ $ npm install --save react-native-status-bar-height
 $ yarn add react-native-status-bar-height
 ```
 
-## Usage getStatusBarHeight(skipAndroid: boolean = false)
+## Usage `getStatusBarHeight(skipAndroid: boolean = false)`
 
 ```js
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
-// 44 - on iPhoneX
+// 44 - on iPhone X
 // 20 - on iOS device
 // X - on Android platfrom (runtime value)
 // 0 - on all other platforms (default)
 console.log(getStatusBarHeight());
 
-// will be 0 on Android, because You pass true to skipAndroid
+// Will be 0 on Android, because you pass true to skipAndroid
 console.log(getStatusBarHeight(true));
 ```
 
